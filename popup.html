@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script src="jquery-1.7.min.js"></script>
+  <script>
+    function chgView(isView) {
+        var msg = 
+            isView ?
+            {q: document.forms[0].q.value, isView: true} :
+            {isView: false};
+        chrome.tabs.getSelected(null, function(tab) {
+            chrome.tabs.sendRequest(
+                tab.id, 
+                msg, 
+                function(response) {});
+        });
+    }
+  </script>
+</head>
+<body>
+<form>
+  抽出キーワード：<br>
+  <input name="q" type="text" /><br>
+  <input name="view" type="button" onclick="chgView(true)" value="検索"/><br>
+  <input name="clear" type="button" onclick="chgView(false)" value="クリア"/>
+</form>
+</body>
+</html>

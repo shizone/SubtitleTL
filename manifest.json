@@ -1,0 +1,20 @@
+{
+  "name": "Subtitle TL",
+  "version": "0.1",
+  "description": "Twitter Subtitle TL",
+  "background_page" : "background.html",
+  "content_scripts": [{
+    "matches": ["http://*/*", "http://*/*", "file:///*/*"],
+    "js": [
+      "jquery-1.7.min.js",
+      "jquery.timers.js",
+      "subtitletl.js"
+    ],
+    "run_at": "document_end"
+  }],
+  "browser_action": {
+    "default_icon": "icon.png",
+    "popup": "popup.html"
+  },
+  "permissions": ["tabs", "https://twitter.com/"]
+}

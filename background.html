@@ -1,0 +1,8 @@
+<script src="jquery-1.7.min.js"></script>
+<script>
+chrome.extension.onRequest.addListener(function(request, sender, callback) {
+  if (request.action == 'getJSON') {
+    $.getJSON(request.url, callback);
+  }
+});
+</script>
